@@ -10,27 +10,14 @@ export default function Home() {
       <h1 className="font-bold text-xl">Beginner</h1>
 
       <h1 className="font-bold text-xl">Intermediate</h1>
-      <SimpleAccordion headers={["IP-QUERYPARAM", "IP-URLPARAM"]} allowMultipleExpanded allowZeroExpanded>
+      <SimpleAccordion headers={["IP-T-SHIRT"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
-            Here will be a description on this CTF
+            In this challenge, you'll get to view the magnificent CS department T-shirt
+            from a previous year. There's also a flag hiding somewhere.
           </p>
           <p className="pt-5">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut optio, ratione nulla tenetur doloribus obcaecati magni quibusdam, maxime nam fugiat reprehenderit facere cum blanditiis quod eum adipisci. Ex, eius delectus.
-          </p>
-          <p className="pt-5">
-            Click <Link className="text-[#DD88CF] font-bold leading-snug hover:underline hover:decoration-[#6A1E55] underline-offset-4 decoration-[2px]" href="/challenge1?id=43" >here</Link>!
-          </p>
-        </div>
-        <div>
-          <p className="pt-5">
-            Here will be a description on this CTF
-          </p>
-          <p className="pt-5">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut optio, ratione nulla tenetur doloribus obcaecati magni quibusdam, maxime nam fugiat reprehenderit facere cum blanditiis quod eum adipisci. Ex, eius delectus.
-          </p>
-          <p className="pt-5">
-            Click <Link className="text-[#DD88CF] font-bold leading-snug hover:underline hover:decoration-[#6A1E55] underline-offset-4 decoration-[2px]" href="/challenge2/43" >here</Link>!
+            Click <Link className="text-[#DD88CF] font-bold leading-snug hover:underline hover:decoration-[#6A1E55] underline-offset-4 decoration-[2px]" href="/t-shirts?year=2022" >here</Link>!
           </p>
         </div>
       </SimpleAccordion>
