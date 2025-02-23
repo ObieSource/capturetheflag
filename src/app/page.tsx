@@ -23,16 +23,14 @@ export default function Home() {
       </SimpleAccordion>
 
       <h1 className="font-bold text-xl">Advanced</h1>
-      <SimpleAccordion headers={["AP-COMMENT"]} allowMultipleExpanded allowZeroExpanded>
+      <SimpleAccordion headers={["AP-CHARTER"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
-            Here will be a description on this CTF
+            In this challenge, you'll be looking at the charter for the Computer Science
+            Majors' Committee.
           </p>
           <p className="pt-5">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut optio, ratione nulla tenetur doloribus obcaecati magni quibusdam, maxime nam fugiat reprehenderit facere cum blanditiis quod eum adipisci. Ex, eius delectus.
-          </p>
-          <p className="pt-5">
-            Click <Link className="text-[#DD88CF] font-bold leading-snug hover:underline hover:decoration-[#6A1E55] underline-offset-4 decoration-[2px]" href="/challenge3" >here</Link>!
+            Click <Link className="text-[#DD88CF] font-bold leading-snug hover:underline hover:decoration-[#6A1E55] underline-offset-4 decoration-[2px]" href="/charter" >here</Link>!
           </p>
         </div>
       </SimpleAccordion>

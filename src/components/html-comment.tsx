@@ -12,5 +12,5 @@ export function HtmlComment({ text }: { text: string }) {
     }
   });
 
-  return <span ref={elRef}></span>;
+  return <span className="definitely-dont-look-in-here" ref={elRef}></span>;
 }
