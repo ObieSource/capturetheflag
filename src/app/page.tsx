@@ -1,12 +1,7 @@
 import Link from 'next/link'
 import { SimpleAccordion } from "@/components/accordion";
-import { Flagger } from '@/components/flagger';
+import { Flagger, SimpleLink } from '@/components/flagger';
 
-function SimpleLink({children, href}: {children: any, href: string}) {
-  return (
-    <Link className="text-[#DD88CF] font-bold leading-snug hover:underline hover:decoration-[#6A1E55] underline-offset-4 decoration-[2px]" href={href}>{children}</Link>
-  );
-}
 
 export default function Home() {
   return (
@@ -22,10 +17,10 @@ export default function Home() {
           </p>
           
           <p className="pt-5">
-            Click <SimpleLink href="/t-shirts?year=2022">here</SimpleLink>!
+            Click <SimpleLink href="/login">here</SimpleLink>!
           </p>
 
-          <Flagger challenge="login" />
+          <Flagger challenge="LOGIN-REQUIRED" />
 
         </div>
       </SimpleAccordion>
@@ -40,12 +35,16 @@ export default function Home() {
           <p className="pt-5">
             Click <SimpleLink href="/t-shirts?year=2022">here</SimpleLink>!
           </p>
+
+          <Flagger challenge="IP-T-SHIRT" />
         </div>
         <div>
           <p className="pt-5">
             This challenge is a weird one; we don't have a link for you.
             In fact, you're not even supposed to see this flag, but you might accidentally run into it while you're lost in the weeds of other challenges.
           </p>
+
+          <Flagger challenge="IP-NOWHERE" />
         </div>
       </SimpleAccordion>
 
@@ -59,6 +58,8 @@ export default function Home() {
           <p className="pt-5">
             Click <SimpleLink href="/charter" >here</SimpleLink>!
           </p>
+
+          <Flagger challenge="AP-CHARTER" />
         </div>
       </SimpleAccordion>
     </div>
