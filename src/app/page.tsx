@@ -31,7 +31,7 @@ export default function Home() {
       </SimpleAccordion>
 
       <h1 className="font-bold text-xl">Intermediate</h1>
-      <SimpleAccordion headers={["IP-T-SHIRT"]} allowMultipleExpanded allowZeroExpanded>
+      <SimpleAccordion headers={["IP-T-SHIRT", "IP-NOWHERE"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
             In this challenge, you'll get to view the magnificent CS department T-shirt
@@ -39,6 +39,12 @@ export default function Home() {
           </p>
           <p className="pt-5">
             Click <SimpleLink href="/t-shirts?year=2022">here</SimpleLink>!
+          </p>
+        </div>
+        <div>
+          <p className="pt-5">
+            This challenge is a weird one; we don't have a link for you.
+            In fact, you're not even supposed to see this flag, but you might accidentally run into it while you're lost in the weeds of other challenges.
           </p>
         </div>
       </SimpleAccordion>
