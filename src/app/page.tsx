@@ -10,7 +10,7 @@ export default function Home() {
       <p className="pt-10 pb-20 px-2 mr-auto w-full lg:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ipsa cumque iusto aspernatur necessitatibus distinctio vel, cum cupiditate fugit sequi, aut iste praesentium. Eius quisquam ratione animi porro nulla quo!</p>
 
       <h1 className="font-bold text-xl">Beginner</h1>
-      <SimpleAccordion headers={["LOGIN-REQUIRED"]} allowMultipleExpanded allowZeroExpanded>
+      <SimpleAccordion headers={["LOGIN-REQUIRED", "TREES"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
             Welcome to Obiesource's first CTF challenge. To get started, please login!
@@ -21,6 +21,18 @@ export default function Home() {
           </p>
 
           <Flagger challenge="LOGIN-REQUIRED" />
+
+        </div>
+        <div>
+          <p className="pt-5">
+            Some information on cherry trees.
+          </p>
+          
+          <p className="pt-5">
+            Click <SimpleLink href="/tree">here</SimpleLink>!
+          </p>
+
+          <Flagger challenge="TREES" />
 
         </div>
       </SimpleAccordion>

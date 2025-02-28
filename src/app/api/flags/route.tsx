@@ -29,8 +29,8 @@ export const flags = [
         points: 1
     },
     {
-        challenge: "EMPTY-PAGE",
-        flag: "CTF-PNG-AY9D",
+        challenge: "TREES",
+        flag: "CTF-IMG-49F7",
         description: "You captured the flag!",
         points: 1
     },
