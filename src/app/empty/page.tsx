@@ -1,8 +1,6 @@
 export const metadata = {
-  title: 'Custom Page',
-  description: 'This is a custom page with a unique favicon',
   icons: {
-    icon: '/../qrcode.ico', // Custom favicon for this page
+    icon: 'https://drive.google.com/download?id=1z5XJpnlHIme5xm0KYsfd6WbBnh64KEOu',
   },
 };
 
