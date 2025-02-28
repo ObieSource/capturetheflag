@@ -26,7 +26,7 @@ export default function Home() {
       </SimpleAccordion>
 
       <h1 className="font-bold text-xl">Intermediate</h1>
-      <SimpleAccordion headers={["IP-T-SHIRT", "IP-NOWHERE"]} allowMultipleExpanded allowZeroExpanded>
+      <SimpleAccordion headers={["IP-T-SHIRT", "IP-NOWHERE", "EMPTY-PAGE"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
             In this challenge, you'll get to view the magnificent CS department T-shirt
@@ -45,6 +45,18 @@ export default function Home() {
           </p>
 
           <Flagger challenge="IP-NOWHERE" />
+        </div>
+        <div>
+          <p className="pt-5">
+            Not much here. Where might it be? This might take a few tries.
+          </p>
+          
+          <p className="pt-5">
+            Click <SimpleLink href="/empty">here</SimpleLink>!
+          </p>
+
+          <Flagger challenge="EMPTY-PAGE" />
+
         </div>
       </SimpleAccordion>
 
