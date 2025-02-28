@@ -41,8 +41,8 @@ export const flags = [
         points: 3
     },
     {
-        challenge: "IP-NOWHERE",
-        flag: "CTF-TD6-SL62",
+        challenge: "FLAG-STORAGE-LOCATION",
+        flag: "CTF-DIR-SL62",
         description: "You captured the flag! ",
         points: 3
     },

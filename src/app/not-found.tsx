@@ -5,8 +5,7 @@ export default function NotFound() {
         404: Page not found
       </h1>
       <p className="pt-4">
-        On the bright side, you've now found the flag for the problem{" "}
-        <strong>IP-NOWHERE</strong>: it's <strong>CTF-TD6-SL62</strong>.
+        Nothing to see here... maybe elsewhere?
       </p>
     </div>
   );
