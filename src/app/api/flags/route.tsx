@@ -37,7 +37,7 @@ export const flags = [
     {
         challenge: "A-RIVER-IN-EGPYT",
         flag: "CTF-DOS-KJ2B",
-        description: "You captured the flag! ",
+        description: "You captured the flag! A [Denial Of Service](https://en.wikipedia.org/wiki/Denial-of-service_attack) attack is an attack in which bad actors overwhelm a service with network requests, making the service either crash or extremely difficult for users to use.\n\nIn this scenario, the site wasn't checking how often we were making requests. As such, the site got overwhelmed and broke! Nearly every site has some sort of [rate limiting](https://www.cloudflare.com/learning/bots/what-is-rate-limiting/) that prevents this from happening. For example, google will make you verify that you're not a bot if you spam the refresh button!\n\nOne of the largest wide-scale attacks is from the [Mirai Botnet](https://www.cisecurity.org/insights/blog/the-mirai-botnet-threats-and-mitigations).",
         points: 1
     },
     {

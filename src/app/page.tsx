@@ -10,7 +10,7 @@ export default function Home() {
       <p className="pt-10 pb-20 px-2 mr-auto w-full lg:w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ipsa cumque iusto aspernatur necessitatibus distinctio vel, cum cupiditate fugit sequi, aut iste praesentium. Eius quisquam ratione animi porro nulla quo!</p>
 
       <h1 className="font-bold text-xl">Beginner</h1>
-      <SimpleAccordion headers={["LOGIN-REQUIRED", "TREES"]} allowMultipleExpanded allowZeroExpanded>
+      <SimpleAccordion headers={["LOGIN-REQUIRED", "TREES", "A-RIVER-IN-EGYPT"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
             Welcome to Obiesource's first CTF challenge. To get started, please login!
@@ -35,9 +35,19 @@ export default function Home() {
           <Flagger challenge="TREES" />
 
         </div>
+        <div>
+          <p className="pt-5">
+            Below is some interesting information on the Nile River! Please note: the server has to send a large file, so please don't send too many requests at once!
+          </p>
+          <p className="pt-5">
+            Click <SimpleLink href="/egypt">here</SimpleLink>!
+          </p>
+
+          <Flagger challenge="A-RIVER-IN-EGPYT" />
+        </div>
       </SimpleAccordion>
 
-      <h1 className="font-bold text-xl">Intermediate</h1>
+      <h1 className="font-bold text-xl pt-10">Intermediate</h1>
       <SimpleAccordion headers={["IP-T-SHIRT", "FLAG-STORAGE-LOCATION"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
@@ -59,7 +69,7 @@ export default function Home() {
         </div>
       </SimpleAccordion>
 
-      <h1 className="font-bold text-xl">Advanced</h1>
+      <h1 className="font-bold text-xl pt-10">Advanced</h1>
       <SimpleAccordion headers={["AP-CHARTER"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
