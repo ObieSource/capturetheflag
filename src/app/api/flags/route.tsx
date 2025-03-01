@@ -31,7 +31,7 @@ export const flags = [
     {
         challenge: "TREES",
         flag: "CTF-IMG-49F7",
-        description: "You captured the flag!",
+        description: "You captured the flag! Files like images can contain sensitive metadata, not just in the file name, but the file itself.",
         points: 1
     },
     {
@@ -43,7 +43,7 @@ export const flags = [
     {
         challenge: "FLAG-STORAGE-LOCATION",
         flag: "CTF-DIR-SL62",
-        description: "You captured the flag! ",
+        description: "You captured the flag! If not properly secured, it might be possible for clients to go wherever they want on the website's filesystem!",
         points: 3
     },
     {
