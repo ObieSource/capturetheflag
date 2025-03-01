@@ -35,6 +35,12 @@ export const flags = [
         points: 1
     },
     {
+        challenge: "A-RIVER-IN-EGPYT",
+        flag: "CTF-DOS-KJ2B",
+        description: "You captured the flag! ",
+        points: 1
+    },
+    {
         challenge: "IP-T-SHIRT",
         flag: "CTF-B67-MHMT",
         description: "You captured the flag! ",

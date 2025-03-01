@@ -17,7 +17,8 @@ function ParseParagraph({paragraph}: {paragraph: string}) {
     return (
         <>
         {words.map((w, i) => (
-            <>{w}{i < (links?.length || 0) && <SimpleLink target="_blank" href={links[i].substring(links[i].indexOf("(")+1, links[i].length - 1)}>{links[i].substring(1,links[i].indexOf("]"))}</SimpleLink>}</>
+            
+            <React.Fragment key={i}>{w}{i < (links?.length || 0) && <SimpleLink target="_blank" href={links[i].substring(links[i].indexOf("(")+1, links[i].length - 1)}>{links[i].substring(1,links[i].indexOf("]"))}</SimpleLink>}</React.Fragment>
         ))}
         </>
     )
