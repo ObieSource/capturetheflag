@@ -74,6 +74,17 @@ export default function Home() {
 
           <Flagger challenge="FLAG-STORAGE-LOCATION" />
         </div>
+
+        <div>
+          <p className="pt-5">
+            In this challenge, you'll reset someone's password.
+          </p>
+          <p className="pt-5">
+            Click <SimpleLink href="/resetpassword">here</SimpleLink>!
+          </p>
+
+          <Flagger challenge="RESET-PASSWORD" />
+        </div>
       </SimpleAccordion>
 
       <h1 className="font-bold text-xl pt-10" id="advanced">Advanced</h1>
