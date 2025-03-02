@@ -8,7 +8,7 @@ export default function page() {
     const [flag, setFlag] = useState("_");
     useEffect(() => {
         fetch("/api/egpyt").then(resp => resp.json().then(m => setFlag(m.message)));
-    })
+    }, []);
     return (
         <div className="p-5">
             {(flag === "") && (<><p className="p-5">
@@ -20,12 +20,13 @@ export default function page() {
                     <SimpleLink href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Cairo_skyline%2C_Panoramic_view%2C_Egypt.jpg/390px-Cairo_skyline%2C_Panoramic_view%2C_Egypt.jpg">Original image source</SimpleLink>
                 </div>
             </>)}
-            {(flag !== "" && flag !== "_") && (
+            {(flag !== "" && flag !== "_" && flag.startsWith("C")) && (
                 <div className="mx-auto w-fit">
                     <div className="font-extrabold text-center">SERVER ERROR: Service Denied</div>
                     
                     The server has received too many requests from this device. Good job! {flag}
                 </div>)}
+            {(flag.startsWith("T") && <div className="font-extrabold text-center">{flag}</div>)}
         </div>
     )
 }

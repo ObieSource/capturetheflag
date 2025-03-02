@@ -4,19 +4,20 @@
  */
 
 import { NextApiRequest } from "next";
+import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
 
 
 // This should be set to true after the CTF event. This way people can see what the solutions were.
-const OVERRIDE_FLAG_CHECK = false;
 
 type Flag = {
-   challenge: string
-   flag: string
-   description: string
-   points: number
-}; 
+    challenge: string
+    flag: string
+    description: string
+    points: number
+};
 
+// THE SECRET FLAG ISNT IN HERE
 // I'm using a naive find/replace for links. so dont use [] and () unless you want a link... lmao
 // The parsing of this is also super horrible and untested. dont start or end the description with a link.
 
@@ -31,7 +32,7 @@ export const flags = [
     {
         challenge: "TREES",
         flag: "CTF-IMG-49F7",
-        description: "You captured the flag! Files like images can contain sensitive metadata, not just in the file name, but the file itself.",
+        description: "You captured the flag! In this example, by downloading an image that was shared with us, we were able to look further into the contents of the file to uncover more information!\n\nWhile this example only worked with file names, a big issue arises with file [metadata](https://en.wikipedia.org/wiki/Metadata). For example, if a user shared an image, that image will contain sensitive information that can include where the photo was taken from. If this image was shared publicly, that user's location would be leeked. As such, it is integral for file-sharing sites to [scrub metadata](https://support.discord.com/hc/en-us/community/posts/13996617793559-Image-metadata-getting-removed).",
         points: 1
     },
     {
@@ -43,27 +44,41 @@ export const flags = [
     {
         challenge: "IP-T-SHIRT",
         flag: "CTF-B67-MHMT",
-        description: "You captured the flag! ",
+        description: "You captured the flag! In this challenge, we noticed that there was a year in the url, and we changed the year to 2021 to see that the flag was there!\n\nThis is a quasi-example of an [enumeration attack](https://stytch.com/blog/what-is-an-enumeration-attack/). Some insecure image-sharing sites enumerate their photos in this way (i.e. imageId=1, imageId=2, etc.) and can be easily indexed. This is highly insecure as sensitive data can be leaked. Another example of this is the fact that [credit cards have a set amount of numbers](https://www.acamstoday.org/enumeration-attack/).",
         points: 3
     },
     {
         challenge: "FLAG-STORAGE-LOCATION",
         flag: "CTF-DIR-SL62",
-        description: "You captured the flag! If not properly secured, it might be possible for clients to go wherever they want on the website's filesystem!",
+        description: "You captured the flag! In this example, we took advantage of the fact that pages are accessible from anywhere. By going to /flags, we were able to see information that the site owners thought was not accessible to the public.\n\nOne of the most important things in keeping sites secure is requiring authentication for web pages that have restricted access. Simply not having a link be clickable from anywhere does not prevent a user from going to that page. Oberlin has been guilty of doing exactly this.",
         points: 3
     },
     {
         challenge: "AP-CHARTER",
         flag: "CTF-CZ3-WRJT",
-        description: "You captured the flag! ",
+        description: "You captured the flag! In this example, we exploited the fact that the code is available to use in the webpage's inspection menu, and saw an HTML comment that contained the flag that we wanted.\n\nA common vulnerability is expecting users to not be tech-savvy, or to not put in work. By providing a user with a program, there is a likely chance that someone can modify it to their will. [Deobfuscation](https://nordvpn.com/cybersecurity/glossary/deobfuscate/) is not enough.\n\nIt is the server's job to maintain the validity of information regarding user data. Without it, video game hackers and much more impactful attacks will continue to exist.",
+        points: 5
+    },
+    {
+        challenge: "COOKIES",
+        flag: "CTF-API-ZUV3",
+        description: "You captured the flag! In this example, we inspected the network traffic of the communication of the server and found an API call. By modifying the request that was made, we were able to 'crash' the server.\n\nThis is a vulnerable API. Even while the logic of our code was correct, the server didn't validate the input. Even if your code using your code is correct, it is still important to enforce [invariance](https://medium.com/code-design/invariants-in-code-design-557c7864a047) in your code. You can find more vulnerabilities in APIs [here](https://brightsec.com/blog/top-api-vulnerabilities-and-6-ways-to-mitigate-them/).",
+        points: 5,
+    },
+    {
+        challenge: "AND-MILK",
+        flag: "CTF-CK3-M1LK",
+        description: "You captured the flag! In this example, we looked at the [cookies](https://usa.kaspersky.com/resource-center/definitions/cookies?srsltid=AfmBOoq2p-ClPS1zneVx7Wl8bMfQxjEqwqEy0_AAbfBFq1VaFVAQM4eo) stored in our session, changed the value of the 'amountOfTimesEgyptPageRequested' cookie to a value that doesnt make sense (A super high number, a negative number, or something that isnt a number).\n\nWhile this is similar to some other challenges that involve server validation, there is some interesting stuff that can surround cookies. For example, if a game kept track of a sessionID for a particular user, then an attacker could change their sessionID to that of the user and impersonate them. This is known as [session hijacking](https://en.wikipedia.org/wiki/Session_hijacking).",
         points: 5
     }
 ] as const;
 
 export async function GET(req: NextRequest) {
     const params = req.nextUrl.searchParams;
+    const cookie = await cookies();
     for (let flag of flags) {
-        if (flag.challenge === params.get("challenge") && (flag.flag === params.get("flag")!.trim() || OVERRIDE_FLAG_CHECK)) {
+        if (flag.challenge === params.get("challenge") && (flag.flag === params.get("flag")!.trim() || ((new Date()).getTime() >= Date.UTC(2025, 2, 2, 20) || cookie.has(flag.flag)))) {
+            cookie.set(flag.flag, "true");
             return Response.json(flag);
         }
         if (flag.challenge !== params.get("challenge") && (flag.flag === params.get("flag")!.trim())) {
@@ -73,6 +88,14 @@ export async function GET(req: NextRequest) {
                 description: `This isn't the right flag for this challenge, but it is the right flag for another one! You're looking for ${flag.challenge}!`
             });
         }
+    }
+    if (params.get("flag") === "") {
+        return Response.json({
+            challenge: params.get("challenge"),
+            flag: params.get("flag"),
+            description: "",
+            points: 0
+        });
     }
     return Response.json({
         challenge: params.get("challenge"),

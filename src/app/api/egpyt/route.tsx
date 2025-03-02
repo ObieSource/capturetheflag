@@ -9,6 +9,11 @@ export async function GET(
         cookie.set("amountOfTimesEgyptPageRequested", "0");
     }
     const val = parseInt(cookie.get("amountOfTimesEgyptPageRequested")!.value);
+    
+    if (isNaN(val) || val > 4000 || val < 0) {
+        return NextResponse.json({message: "The cookie monster! CTF-CK3-M1LK"})
+    }
+
     cookie.set("amountOfTimesEgyptPageRequested", `${val + 1}`, {
         maxAge: 10 // within 10 seconds
     })

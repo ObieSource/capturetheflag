@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 // Color palette: https://colorhunt.co/palette/1a1a1d3b1c326a1e55a64d79
@@ -37,6 +37,15 @@ const navElements = [
 export default function NavbarDefault({ active }: { active?: string }) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
 
+    const [score, setScore] = useState(0);
+
+    const fetchScore = () => {
+        fetch("/api/score").then(resp => resp.json().then(({score}) => setScore(score)));
+        setTimeout(fetchScore, 1000 * 5); // every 5 seconds
+    }
+
+    useEffect(fetchScore,[]);
+
     return (
         <>
             <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-[#1A1A1D] mb-3 font-serif border-b-4 border-b-[#A64D79]">
@@ -70,6 +79,9 @@ export default function NavbarDefault({ active }: { active?: string }) {
                     </div>
                 </div>
             </nav>
+            <div className="fixed right-0 bottom-1 border-2 p-5 rounded-lg border-[#A64D79] bg-[#1A1A1D]">
+                Current score: {score}
+            </div>
         </>
     );
 }

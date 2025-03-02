@@ -1,12 +1,12 @@
 "use client";
 import { flags } from "@/app/api/flags/route";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 
-export function SimpleLink({children, href, target}: {children: any, href: string, target?: any}) {
+export function SimpleLink({children, href, target}: {children: any, href?: string, target?: any}) {
     return (
-      <Link target={target} className="text-[#DD88CF] font-bold leading-snug hover:underline hover:decoration-[#6A1E55] underline-offset-4 decoration-[2px]" href={href}>{children}</Link>
+      <Link target={target} className="text-[#DD88CF] font-bold leading-snug hover:underline hover:decoration-[#6A1E55] underline-offset-4 decoration-[2px]" href={href as any}>{children}</Link>
     );
   }
 
@@ -41,8 +41,9 @@ export function Flagger({challenge}: {challenge: typeof flags[number]["challenge
     const [inside, setInside] = React.useState("");
 
     const submit = () => {
-        fetch(`/api/flags?challenge=${challenge}&flag=${inp.current?.value}`).then(x => x.json().then(y => setInside(y.description)))
+        fetch(`/api/flags?challenge=${challenge}&flag=${inp.current?.value}`).then(x => x.json().then(y => {setInside(y.description); inp.current!.value = y.flag}));
     }
+    useEffect(submit, []);
     return (
         <div className="w-2/3 mt-5">
             <span className="font-bold font-sm">Enter Flag:</span>
