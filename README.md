@@ -1,3 +1,6 @@
+> [!WARNING]  
+> If you're participating in the ObieSource interest meeting right now, DON'T LOOK AT THIS CODE! That would be cheating!
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
