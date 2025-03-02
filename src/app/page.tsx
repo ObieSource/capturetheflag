@@ -17,7 +17,7 @@ export default function Home() {
       <p className="pt-10 pb-20 px-2 mr-auto w-full lg:w-3/4">Below are all of the challenges. Each beginner challenge is worth 1 point, each intermediate challenge is worth 3 points, and each advanced challenge is worth 5 points. Your team's goal is to get as many points as you can! You should be working on as many challenges as you can before time runs out! Divy up the problems among skill level, and get breaking! After the allotted time, one person from each group will share the score that you got!</p>
 
       <h1 className="font-bold text-xl" id="beginner">Beginner</h1>
-      <SimpleAccordion headers={["LOGIN-REQUIRED", "TREES", "A-RIVER-IN-EGYPT"]} allowMultipleExpanded allowZeroExpanded>
+      <SimpleAccordion headers={["LOGIN-REQUIRED", "RESET-PASSWORD", "A-RIVER-IN-EGYPT"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
             Welcome to Obiesource's first CTF challenge. To get started, please login!
@@ -30,17 +30,16 @@ export default function Home() {
           <Flagger challenge="LOGIN-REQUIRED" />
 
         </div>
+
         <div>
           <p className="pt-5">
-            Some information on cherry trees.
+            In this challenge, you'll reset someone's password.
           </p>
-          
           <p className="pt-5">
-            Click <SimpleLink href="/tree">here</SimpleLink>!
+            Click <SimpleLink href="/resetpassword">here</SimpleLink>!
           </p>
 
-          <Flagger challenge="TREES" />
-
+          <Flagger challenge="RESET-PASSWORD" />
         </div>
         <div>
           <p className="pt-5">
@@ -55,7 +54,7 @@ export default function Home() {
       </SimpleAccordion>
 
       <h1 className="font-bold text-xl pt-10" id="intermediate">Intermediate</h1>
-      <SimpleAccordion headers={["IP-T-SHIRT", "FLAG-STORAGE-LOCATION", "RESET-PASSWORD"]} allowMultipleExpanded allowZeroExpanded>
+      <SimpleAccordion headers={["IP-T-SHIRT", "FLAG-STORAGE-LOCATION", "TREES"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
             In this challenge, you'll get to view the magnificent CS department T-shirt
@@ -75,16 +74,20 @@ export default function Home() {
           <Flagger challenge="FLAG-STORAGE-LOCATION" />
         </div>
 
+
         <div>
           <p className="pt-5">
-            In this challenge, you'll reset someone's password.
+            Some information on cherry trees.
           </p>
+          
           <p className="pt-5">
-            Click <SimpleLink href="/resetpassword">here</SimpleLink>!
+            Click <SimpleLink href="/tree">here</SimpleLink>!
           </p>
 
-          <Flagger challenge="RESET-PASSWORD" />
+          <Flagger challenge="TREES" />
+
         </div>
+
       </SimpleAccordion>
 
       <h1 className="font-bold text-xl pt-10" id="advanced">Advanced</h1>
