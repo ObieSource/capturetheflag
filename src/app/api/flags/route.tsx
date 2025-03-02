@@ -32,7 +32,7 @@ export const flags = [
     {
         challenge: "TREES",
         flag: "CTF-IMG-49F7",
-        description: "You captured the flag! In this example, by downloading an image that was shared with us, we were able to look further into the contents of the file to uncover more information!\n\nWhile this example only worked with file names, a big issue arises with file [metadata](https://en.wikipedia.org/wiki/Metadata). For example, if a user shared an image, that image will contain sensitive information that can include where the photo was taken from. If this image was shared publicly, that user's location would be leeked. As such, it is integral for file-sharing sites to [scrub metadata](https://support.discord.com/hc/en-us/community/posts/13996617793559-Image-metadata-getting-removed).",
+        description: "You captured the flag! In this example, by downloading an image that was shared with us, we were able to look further into the contents of the file to uncover more information!\n\nWhile this example only worked with file names, a big issue arises with file [metadata](https://en.wikipedia.org/wiki/Metadata). For example, if a user shared an image, that image will contain sensitive information that can include where the photo was taken from. If this image was shared publicly, that user's location would be leaked. As such, it is integral for file-sharing sites to [scrub metadata](https://support.discord.com/hc/en-us/community/posts/13996617793559-Image-metadata-getting-removed).",
         points: 1
     },
     {
@@ -51,6 +51,12 @@ export const flags = [
         challenge: "FLAG-STORAGE-LOCATION",
         flag: "CTF-DIR-SL62",
         description: "You captured the flag! In this example, we took advantage of the fact that pages are accessible from anywhere. By going to /flags, we were able to see information that the site owners thought was not accessible to the public.\n\nOne of the most important things in keeping sites secure is requiring authentication for web pages that have restricted access. Simply not having a link be clickable from anywhere does not prevent a user from going to that page. Oberlin has been guilty of doing exactly this.",
+        points: 3
+    },
+    {
+        challenge: "RESET-PASSWORD",
+        flag: "CTF-QNA-92T6",
+        description: "You captured the flag! This challenge looks similar to the login page, but with a major difference: instead of a mistake in the website's programming, this page instead has a flawed security model. Even if the website works flawlessly, answering the questions still cannot truly verify that the user is the intended person, since the intended person is not the only person who knows the answers. Security is not just good programming, but general design as a whole. This is also why you shouldn't put your answers to security questions as the actual answers.",
         points: 3
     },
     {
