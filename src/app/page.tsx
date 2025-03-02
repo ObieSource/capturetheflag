@@ -55,7 +55,7 @@ export default function Home() {
       </SimpleAccordion>
 
       <h1 className="font-bold text-xl pt-10" id="intermediate">Intermediate</h1>
-      <SimpleAccordion headers={["IP-T-SHIRT", "FLAG-STORAGE-LOCATION"]} allowMultipleExpanded allowZeroExpanded>
+      <SimpleAccordion headers={["IP-T-SHIRT", "FLAG-STORAGE-LOCATION", "RESET-PASSWORD"]} allowMultipleExpanded allowZeroExpanded>
         <div>
           <p className="pt-5">
             In this challenge, you'll get to view the magnificent CS department T-shirt
